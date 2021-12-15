@@ -14,7 +14,7 @@ services:
       - php
 
   php:
-    image: php:8.0-fpm
+    image: php:8.0-fpm-alpine
     container_name: symfony-rabbit-mq-playground-php
     hostname: php
     build:
@@ -22,6 +22,13 @@ services:
     volumes:
       - ./:/code
       - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+  messanger:
+    image: rabbitmq:3.9-management
+    container_name: symfony-rabbit-mq-playground-messanger
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 
   database:
     image: mariadb
