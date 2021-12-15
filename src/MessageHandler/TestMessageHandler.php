@@ -9,7 +9,6 @@ class TestMessageHandler implements MessageHandlerInterface
 {
     public function __invoke(TestMessage $message)
     {
-        sleep(5);
-        echo "Message sent successfully!";
+        echo "Received message: {$message->getContent()}\n";
     }
 }
