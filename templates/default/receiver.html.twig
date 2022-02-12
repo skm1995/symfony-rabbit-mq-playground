@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="messages">
+
+    </div>
+{% endblock %}
+
+{% block body_scripts %}
+    <script>
+        const eventSource = new EventSource("{{ mercure(path('mercure_random_number'),)|escape('js') }}");
+        eventSource.onmessage = event => {
+            // Will be called every time an update is published by the server
+            console.log(JSON.parse(event.data));
+            const p = document.createElement("p");
+            p.innerText = JSON.parse(event.data).message;
+            document.getElementById('messages').appendChild(p)
+        }
+    </script>
+{% endblock %}

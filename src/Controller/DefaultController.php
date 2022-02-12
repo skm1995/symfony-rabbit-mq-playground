@@ -9,11 +9,21 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 class DefaultController extends AbstractController
 {
-    public function index(MessageBusInterface $messageBus): Response
+    public function index(): Response
     {
-        $message = new TestMessage("Just testing.");
+        return $this->render('default/index.html.twig');
+    }
+
+    public function startQueue(MessageBusInterface $messageBus)
+    {
+        $message = new TestMessage('Random number: ' . rand(0, 100000));
         $messageBus->dispatch($message);
 
-        Return new Response("Sending message.");
+        return $this->redirectToRoute('index');
+    }
+
+    public function receiver(): Response
+    {
+        return $this->render('default/receiver.html.twig');
     }
 }
