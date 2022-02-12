@@ -25,6 +25,7 @@ class TestMessageHandler implements MessageHandlerInterface
         $update = new Update(
             $this->urlGenerator->generate('mercure_random_number'),
             json_encode(['message' => $message->getContent()]),
+            true
         );
         $this->hub->publish($update);
     }

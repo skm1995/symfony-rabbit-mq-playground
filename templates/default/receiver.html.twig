@@ -8,7 +8,9 @@
 
 {% block body_scripts %}
     <script>
-        const eventSource = new EventSource("{{ mercure(path('mercure_random_number'),)|escape('js') }}");
+        const eventSource = new EventSource("{{ mercure(path('mercure_random_number'), { subscribe: path('mercure_random_number') })|escape('js') }}", {
+            withCredentials: true
+        });
         eventSource.onmessage = event => {
             // Will be called every time an update is published by the server
             console.log(JSON.parse(event.data));
