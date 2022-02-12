@@ -1,0 +1,3 @@
+test_item_show_list:
+  path: /test-items
+  controller: App\Controller\TestItemController::showList

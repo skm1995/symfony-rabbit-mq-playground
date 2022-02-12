@@ -1,7 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a href="{{ path('start_queue') }}">
-        <button>Start queue</button>
-    </a>
+    <div style="margin-bottom: 10px;">
+        <a href="{{ path('receiver') }}" target="_blank">Receiver</a>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <a href="{{ path('test_item_show_list') }}">Test items list</a>
+    </div>
+    <div>
+        <a href="{{ path('start_queue') }}">
+            <button>Start queue</button>
+        </a>
+    </div>
 {% endblock %}

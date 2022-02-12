@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for item in items %}
+        <div style="margin-bottom: 10px">
+            <div>Test item: {{ item.name }}</div>
+            <div>Created at: {{ item.createdAt|date }}</div>
+        </div>
+    {% endfor %}
+{% endblock %}

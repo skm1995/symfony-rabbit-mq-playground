@@ -21,12 +21,14 @@ services:
       - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
       - ./docker/php/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
     links:
-      - messanger
+      - messenger
       - database
+      - cache
       - mercure
 
-  messanger:
+  messenger:
     image: rabbitmq:3.9-management
+    hostname: messenger
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -41,6 +43,10 @@ services:
       MARIADB_PASSWORD: 12345678
       MARIADB_ROOT_PASSWORD: 12345678
       MARIADB_DATABASE: app
+
+  cache:
+    image: redis
+    hostname: redis
 
 ###> symfony/mercure-bundle ###
   mercure:
