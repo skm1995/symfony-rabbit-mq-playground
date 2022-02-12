@@ -36,6 +36,8 @@ services:
       MARIADB_PASSWORD: 12345678
       MARIADB_ROOT_PASSWORD: 12345678
       MARIADB_DATABASE: app
+    volumes:
+      - ./docker/data/database:/var/lib/mysql
 
   cache:
     image: redis
