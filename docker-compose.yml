@@ -22,7 +22,7 @@ services:
     volumes:
       - ./:/code
       - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-      - ./docker/php/messenger-worker.conf:/etc/supervisor/conf.d/messenger-worker.conf
+      - ./docker/php/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
 
   messanger:
     image: rabbitmq:3.9-management

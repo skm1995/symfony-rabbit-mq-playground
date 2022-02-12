@@ -7,4 +7,4 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions gd xdebug pdo_mysql amqp
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/messenger-worker.conf"]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
