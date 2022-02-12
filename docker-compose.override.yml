@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  web:
+    ports:
+      - "8000:80"
+
+  php:
+    volumes:
+      - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+  messenger:
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  database:
+    ports:
+      - "33061:3306"
+
+  mercure:
+    command: /usr/bin/caddy run -config /etc/caddy/Caddyfile.dev
+    ports:
+      - "8001:80"
