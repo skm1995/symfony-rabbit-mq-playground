@@ -14,7 +14,6 @@ services:
       - php
 
   php:
-    image: php:8.0-fpm-alpine
     container_name: symfony-rabbit-mq-playground-php
     hostname: php
     build:
