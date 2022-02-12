@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="messages">
-
-    </div>
+    <div id="updates"></div>
 {% endblock %}
 
 {% block body_scripts %}
@@ -16,7 +14,7 @@
             console.log(JSON.parse(event.data));
             const p = document.createElement("p");
             p.innerText = JSON.parse(event.data).message;
-            document.getElementById('messages').appendChild(p)
+            document.getElementById('updates').appendChild(p)
         }
     </script>
 {% endblock %}
