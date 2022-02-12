@@ -12,7 +12,7 @@ class TestItemFixtures extends Fixture
     {
         $now = new \DateTimeImmutable();
 
-        for ($i = 1; $i <= 10000; $i ++) {
+        for ($i = 1; $i <= 20000; $i ++) {
             $testItem = new TestItem();
             $testItem->setName(rand(0, 10000));
             $testItem->setCreatedAt($now);
