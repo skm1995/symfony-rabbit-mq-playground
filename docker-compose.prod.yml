@@ -6,5 +6,8 @@ services:
       - "80:80"
 
   mercure:
+    environment:
+      MERCURE_EXTRA_DIRECTIVES: |
+        cors_origins http://167.99.255.76
     ports:
       - "8001:80"
