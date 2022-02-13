@@ -20,5 +20,3 @@ services:
 
   mercure:
     command: /usr/bin/caddy run -config /etc/caddy/Caddyfile.dev
-    ports:
-      - "8001:80"
